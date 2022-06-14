@@ -1,9 +1,7 @@
-# Fabric Example Mod
+# No Name Tag Render 
 
-## Setup
-
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+[made for u/FlyShaggyMane on reddit](https://www.reddit.com/r/technicalminecraft/comments/vbhk4a/comment/icay7vp/?utm_source=share&utm_medium=web2x&context=3)
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+this mod is under the [unlicense](https://cdn-raw.modrinth.com//licenses/unlicense.txt).
