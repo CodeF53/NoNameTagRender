@@ -1,0 +1,5 @@
+{
+  "text.autoconfig.nonametag.title": "No Nametag Render Config",
+  "text.autoconfig.nonametag.option.enabled": "Enabled",
+  "text.autoconfig.nonametag.option.enabled.@Tooltip": "Yes - Entities wont render name tags\nNo - Entities will render name tags"
+}
