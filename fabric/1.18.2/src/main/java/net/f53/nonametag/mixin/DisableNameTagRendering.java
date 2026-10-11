@@ -1,9 +1,9 @@
 package net.f53.nonametag.mixin;
 
 import net.f53.nonametag.config.ModConfig;
-import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.client.render.entity.EntityRenderer;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -11,13 +11,13 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 @Mixin(EntityRenderer.class)
 public abstract class DisableNameTagRendering {
-	@Shadow protected abstract boolean shouldShowName(Entity entity, double squaredDistanceToCamera);
+	@Shadow protected abstract boolean hasLabel(Entity entity);
 
-	@Redirect(method = "extractRenderState(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/client/renderer/entity/state/EntityRenderState;F)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/EntityRenderer;shouldShowName(Lnet/minecraft/world/entity/Entity;D)Z"))
-	private boolean dontRenderTheTag(EntityRenderer<?, ?> instance, Entity entity, double squaredDistanceToCamera) {
-		if (ModConfig.getInstance().enabled && !(entity instanceof Player)){
+	@Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/entity/EntityRenderer;hasLabel(Lnet/minecraft/entity/Entity;)Z"))
+	private boolean dontRenderTheTag(EntityRenderer<Entity> instance, Entity entity) {
+		if (ModConfig.getInstance().enabled && !(entity instanceof PlayerEntity)){
 			return false;
 		}
-		return this.shouldShowName(entity, squaredDistanceToCamera);
+		return this.hasLabel(entity);
 	}
 }
