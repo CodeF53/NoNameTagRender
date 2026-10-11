@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.18.3'
+	id 'net.fabricmc.fabric-loom' version '1.18.3'
 	id 'maven-publish'
 }
 
@@ -16,9 +16,11 @@ group = project.maven_group
 
 configurations {
 	modIncludeImplementation
+	modImplementation
 
 	include.extendsFrom modIncludeImplementation
-	modImplementation.extendsFrom modIncludeImplementation
+	implementation.extendsFrom modIncludeImplementation
+	implementation.extendsFrom modImplementation
 }
 
 repositories {
@@ -32,7 +34,6 @@ repositories {
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings loom.officialMojangMappings()
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Cloth Config
@@ -45,7 +46,7 @@ dependencies {
 	modIncludeImplementation(fabricApi.module("fabric-resource-loader-v0", project.fabric_version))
 
 	// Mod Menu
-	modCompileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
+	compileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
 }
 
 processResources {
