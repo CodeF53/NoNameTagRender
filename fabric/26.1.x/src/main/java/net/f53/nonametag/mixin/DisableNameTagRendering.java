@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public abstract class DisableNameTagRendering {
 	@Shadow protected abstract boolean shouldShowName(Entity entity, double squaredDistanceToCamera);
 
-	@Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/EntityRenderer;shouldShowName(Lnet/minecraft/world/entity/Entity;D)Z"))
+	@Redirect(method = "extractRenderState(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/client/renderer/entity/state/EntityRenderState;F)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/EntityRenderer;shouldShowName(Lnet/minecraft/world/entity/Entity;D)Z"))
 	private boolean dontRenderTheTag(EntityRenderer<?, ?> instance, Entity entity, double squaredDistanceToCamera) {
 		if (ModConfig.getInstance().enabled && !(entity instanceof Player)){
 			return false;
