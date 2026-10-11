@@ -14,7 +14,7 @@ public abstract class DisableNameTagRendering {
 	@Shadow protected abstract boolean shouldShowName(Entity entity, double squaredDistanceToCamera);
 
 	@Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/EntityRenderer;shouldShowName(Lnet/minecraft/world/entity/Entity;D)Z"))
-	private boolean dontRenderTheTag(EntityRenderer<Entity> instance, Entity entity, double squaredDistanceToCamera) {
+	private boolean dontRenderTheTag(EntityRenderer<?, ?> instance, Entity entity, double squaredDistanceToCamera) {
 		if (ModConfig.getInstance().enabled && !(entity instanceof Player)){
 			return false;
 		}
