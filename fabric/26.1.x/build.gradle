@@ -3,8 +3,8 @@ plugins {
 	id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_21
-targetCompatibility = JavaVersion.VERSION_21
+sourceCompatibility = JavaVersion.toVersion(25)
+targetCompatibility = JavaVersion.toVersion(25)
 
 base {
 	archivesName = project.archives_base_name
@@ -60,8 +60,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	// Minecraft 1.20.5 upwards uses Java 21.
-	it.options.release = 21
+	it.options.release = 25
 }
 
 java {
@@ -69,6 +68,10 @@ java {
 	// if it is present.
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
+
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(25)
+	}
 }
 
 jar {
