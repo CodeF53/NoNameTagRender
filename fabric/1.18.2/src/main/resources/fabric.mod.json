@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "nonametag",
+  "version": "${version}",
+
+  "name": "No Name Tag Render",
+  "description": "Disables rendering of nametag for nametagged entities",
+  "authors": [
+    "F53"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/user/F53",
+    "sources": "https://github.com/CodeF53/NoNameTagRender"
+  },
+
+  "license": "unlicense",
+  "icon": "assets/nonametag/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.f53.nonametag.nonametaginit"
+    ],
+    "modmenu": [
+      "net.f53.nonametag.config.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "nonametag.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "minecraft": "~1.18.2",
+    "java": ">=17"
+  }
+}
