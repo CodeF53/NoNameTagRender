@@ -10,7 +10,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.RenderNameTagEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
-import net.neoforged.neoforge.common.util.TriState;
+import net.minecraft.util.TriState;
 
 @Mod(value = NoNameTag.MODID, dist = Dist.CLIENT)
 @EventBusSubscriber(modid = NoNameTag.MODID, value = Dist.CLIENT)

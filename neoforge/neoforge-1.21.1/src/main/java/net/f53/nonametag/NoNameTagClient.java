@@ -20,7 +20,7 @@ public class NoNameTagClient {
     }
 
     @SubscribeEvent
-    public static void onRenderNameTag(RenderNameTagEvent.CanRender event) {
+    public static void onRenderNameTag(RenderNameTagEvent event) {
         if (ModConfig.ENABLED.get() && !(event.getEntity() instanceof Player)) {
             event.setCanRender(TriState.FALSE);
         }
