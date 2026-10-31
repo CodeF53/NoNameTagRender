@@ -1,38 +1,33 @@
-﻿{
-	"schemaVersion": 1,
-	"id": "modid",
-	"version": "${version}",
-	"name": "Example Mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
-	"authors": [
-		"DerexXD"
-	],
-	"contact": {
-		"homepage": "https://www.derekchen.dev/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"com.example.ExampleMod"
-		],
-		"client": [
-			"com.example.client.ExampleModClient"
-		]
-	},
-	"mixins": [
-		"modid.mixins.json",
-		{
-			"config": "modid.client.mixins.json",
-			"environment": "client"
-		}
-	],
-	"depends": {
-		"fabricloader": ">=0.19.5",
-		"minecraft": "~1.21.1",
-		"java": ">=21",
-		"fabric-api": "*"
-	}
+{
+  "schemaVersion": 1,
+  "id": "nonametag",
+  "version": "${version}",
+  "name": "No Name Tag Render",
+  "description": "Disables rendering of nametag for nametagged entities",
+  "authors": [
+    "F53"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/user/F53",
+    "sources": "https://github.com/CodeF53/NoNameTagRender"
+  },
+  "license": "unlicense",
+  "icon": "assets/nonametag/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.f53.nonametag.nonametaginit"
+    ],
+    "modmenu": [
+      "net.f53.nonametag.config.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "nonametag.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "minecraft": "~1.21.1",
+    "java": ">=21"
+  }
 }
